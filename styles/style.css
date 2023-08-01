@@ -1,8 +1,7 @@
 html{
     background-image: url("../images/hachi.png");
     background-size: cover;
-    padding-top:0px ;
-    padding-bottom: 20px;
+    
 }
 .column {
     padding: 3px;
@@ -35,8 +34,8 @@ h3{
     color: #ff5900;
     font-family: 'Kodchasan', sans-serif;
 }
+
 .dotborder{
-    
     display: grid;
     padding: 5px;
     border: 4px dotted red;
