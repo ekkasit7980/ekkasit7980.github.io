@@ -11,6 +11,7 @@ function getPosInt() {
         if (isNaN(num)) {
             continue;
         } else if (num < 0) {
+            
             break;
         } else if (Number.isInteger(num)) {
             list_num.push(num);
