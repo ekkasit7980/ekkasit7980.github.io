@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                margin: 0;
+                padding-left: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 5px;
+            }
+
+            .grid {
+                width: calc(25% - 10px); /* 25% width with 5px margin on both sides */
+                height: 100px;
+                background-color: blue;
+                margin-top: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 20px;
+                color: white;
+                cursor: pointer;
+            }
+
+
+            .grid.clicked {
+                background-color: green; /* Change background color after clicking */
+            }
+        </style>
+        <title>Color Changing Grids</title>
+    </head>
+    <body>
+        <!-- Create 16 grids -->
+        <div class="grid"></div>
+        <div class="grid"></div>
+        <div class="grid"></div>
+        <div class="grid"></div>
+        <div class="grid"></div>
+        <div class="grid"></div>
+        <div class="grid"></div>
+        <div class="grid"></div>
+        <div class="grid"></div>
+        <div class="grid"></div>
+        <div class="grid"></div>
+        <div class="grid"></div>
+        <div class="grid"></div>
+        <div class="grid"></div>
+        <div class="grid"></div>
+        <div class="grid"></div>
+
+        <script>
+            const oddGrids = document.querySelectorAll('.grid:nth-child(odd)');
+            const evenGrids = document.querySelectorAll('.grid:nth-child(even)');
+
+            // Add click event listeners to odd grids
+            oddGrids.forEach(grid => {
+            grid.addEventListener('click', () => {
+                const randomColor = getRandomColor();
+                grid.style.backgroundColor = randomColor;
+            });
+            });
+
+            // Add click event listeners to even grids
+            evenGrids.forEach(grid => {
+            grid.addEventListener('click', () => {
+                if (!grid.classList.contains('clicked')) {
+                const randomColor = getRandomColor();
+                grid.style.backgroundColor = randomColor;
+                grid.classList.add('clicked');
+                }
+                });
+            });
+
+            // Function to generate a random color
+            function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+            }
+        </script>
+    </body>
+</html>
